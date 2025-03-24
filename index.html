@@ -1,0 +1,58 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { FaLinkedin, FaGithub, FaEnvelope, FaHome, FaMusic, FaBriefcase, FaUser } from "react-icons/fa";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+const Home = () => (
+  <div className="text-center p-6">
+    <h1 className="text-4xl font-bold">👨‍💻 Welcome to My Personal Site!</h1>
+    <p className="text-lg text-gray-400">IT Infrastructure | Data Platforms | Singing | Personal Interests</p>
+  </div>
+);
+
+const Performances = () => (
+  <div className="p-6">
+    <h2 className="text-2xl font-semibold mb-4">Singing Performances</h2>
+    <p className="text-gray-300">Upload and showcase my musical performances.</p>
+    {/* Upload and display logic goes here */}
+  </div>
+);
+
+const WorkProjects = () => (
+  <div className="p-6">
+    <h2 className="text-2xl font-semibold mb-4">Work Projects</h2>
+    <p className="text-gray-300">A collection of my professional work.</p>
+    {/* Upload and showcase work projects */}
+  </div>
+);
+
+const PersonalInterests = () => (
+  <div className="p-6">
+    <h2 className="text-2xl font-semibold mb-4">Personal Interests</h2>
+    <p className="text-gray-300">Hobbies, passions, and activities I enjoy.</p>
+    {/* Add personal interest content */}
+  </div>
+);
+
+export default function PersonalWebsite() {
+  return (
+    <Router>
+      <div className="min-h-screen bg-gray-900 text-white p-6">
+        <nav className="flex justify-around mb-8 border-b pb-4 border-gray-700">
+          <Link to="/" className="flex items-center gap-2 hover:text-blue-500"><FaHome /> Home</Link>
+          <Link to="/performances" className="flex items-center gap-2 hover:text-blue-500"><FaMusic /> Performances</Link>
+          <Link to="/work-projects" className="flex items-center gap-2 hover:text-blue-500"><FaBriefcase /> Work Projects</Link>
+          <Link to="/personal-interests" className="flex items-center gap-2 hover:text-blue-500"><FaUser /> Personal Interests</Link>
+        </nav>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/performances" element={<Performances />} />
+          <Route path="/work-projects" element={<WorkProjects />} />
+          <Route path="/personal-interests" element={<PersonalInterests />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
